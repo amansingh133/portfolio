@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { HiEnvelope, HiMapPin, HiArrowDownTray } from "react-icons/hi2";
 import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import { CONFIG } from "../data/config.js";
+import useIsMobile from "../hooks/useIsMobile.js";
 
 export default function About() {
+  const isMobile = useIsMobile(768);
+
   const stats = [
     { value: "4+", label: "Years Experience" },
     { value: "10+", label: "Projects Shipped" },
@@ -87,8 +90,10 @@ export default function About() {
             {CONFIG.personal.resumeLink && (
               <motion.a
                 href={CONFIG.personal.resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                /* On mobile: download directly. On desktop: open in new tab. */
+                {...(isMobile
+                  ? { download: true }
+                  : { target: "_blank", rel: "noopener noreferrer" })}
                 className="btn btn-outline"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}

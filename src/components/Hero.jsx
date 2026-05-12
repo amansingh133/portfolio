@@ -10,6 +10,7 @@ import {
 } from "react-icons/fa6";
 import { HiArrowRight, HiArrowDown } from "react-icons/hi2";
 import { CONFIG } from "../data/config.js";
+import useIsMobile from "../hooks/useIsMobile.js";
 
 const FLOAT_SKILLS = [
   "React",
@@ -24,6 +25,7 @@ const FLOAT_SKILLS = [
 
 export default function Hero() {
   const navigate = useNavigate();
+  const isMobile = useIsMobile(768);
 
   const scrollToAbout = () => {
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
@@ -76,33 +78,35 @@ export default function Hero() {
         }}
       />
 
-      {FLOAT_SKILLS.map((sk, i) => (
-        <motion.div
-          key={sk}
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            y: [0, -10, 0],
-            transition: {
-              delay: 1.5 + i * 0.15,
-              duration: 3 + i * 0.4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          style={{
-            position: "absolute",
-            top: `${15 + ((i * 11) % 65)}%`,
-            left: i % 2 === 0 ? `${75 + ((i * 4) % 15)}%` : undefined,
-            right: i % 2 !== 0 ? `${2 + ((i * 3) % 10)}%` : undefined,
-            pointerEvents: "none",
-          }}
-        >
-          <span className="tech-badge" style={{ fontSize: "0.7rem" }}>
-            {sk}
-          </span>
-        </motion.div>
-      ))}
+      {/* Hide floating badges on mobile so they don't overlap content */}
+      {!isMobile &&
+        FLOAT_SKILLS.map((sk, i) => (
+          <motion.div
+            key={sk}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              y: [0, -10, 0],
+              transition: {
+                delay: 1.5 + i * 0.15,
+                duration: 3 + i * 0.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+            style={{
+              position: "absolute",
+              top: `${15 + ((i * 11) % 65)}%`,
+              left: i % 2 === 0 ? `${75 + ((i * 4) % 15)}%` : undefined,
+              right: i % 2 !== 0 ? `${2 + ((i * 3) % 10)}%` : undefined,
+              pointerEvents: "none",
+            }}
+          >
+            <span className="tech-badge" style={{ fontSize: "0.7rem" }}>
+              {sk}
+            </span>
+          </motion.div>
+        ))}
 
       <div className="container">
         <motion.div
@@ -224,8 +228,10 @@ export default function Hero() {
             {CONFIG.personal.resumeLink && (
               <motion.a
                 href={CONFIG.personal.resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
+                /* On mobile: download directly. On desktop: open in new tab. */
+                {...(isMobile
+                  ? { download: true }
+                  : { target: "_blank", rel: "noopener noreferrer" })}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 className="btn btn-ghost"
