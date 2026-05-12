@@ -26,7 +26,8 @@ export default function ContactSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            padding: "80px 60px",
+            /* Responsive padding: big on desktop, compact on mobile */
+            padding: "clamp(40px, 8vw, 80px) clamp(20px, 6vw, 60px)",
             background: "var(--card-bg)",
             border: "1px solid var(--card-border)",
             borderRadius: 28,
@@ -37,21 +38,34 @@ export default function ContactSection() {
           }}
         >
           <div className="grid-bg" style={{ opacity: 0.2 }} />
+
           <p className="section-label" style={{ display: "block" }}>
             Get In Touch
           </p>
+
           <h2
             style={{
               fontFamily: "'Syne',sans-serif",
               fontWeight: 800,
-              fontSize: "clamp(2rem,5vw,3.5rem)",
+              /*
+               * clamp(min, preferred, max)
+               * – Desktop (1200px): 5vw = 60px → capped at 3.5rem ≈ 56px ✓
+               * – Tablet  ( 768px): 5vw = 38px ≈ 2.4rem ✓
+               * – Phone   ( 390px): 5vw = 19.5px → floored at 1.9rem ≈ 30px
+               *   → "Something" fits comfortably in one line at 30px Syne
+               */
+              fontSize: "clamp(1.9rem, 5vw, 3.5rem)",
               marginBottom: 20,
               lineHeight: 1.1,
+              /* Prevent mid-word breaks — words should wrap whole */
+              wordBreak: "keep-all",
+              overflowWrap: "normal",
             }}
           >
             {CONFIG.contact.heading}
             <span className="gradient-text"> Together</span>
           </h2>
+
           <p
             style={{
               color: "var(--text-muted)",
@@ -95,6 +109,7 @@ export default function ContactSection() {
                 LinkedIn <HiArrowTopRightOnSquare size={14} />
               </motion.a>
             )}
+
             {CONFIG.social.whatsapp && (
               <motion.a
                 href={CONFIG.social.whatsapp}
