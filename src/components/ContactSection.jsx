@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { HiEnvelope } from "react-icons/hi2";
-import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { CONFIG } from "../data/config.js";
+import useIsMobile from "../hooks/useIsMobile.js";
 
 export default function ContactSection() {
+  const isMobile = useIsMobile(768);
+
   return (
     <section id="contact" style={{ position: "relative", overflow: "hidden" }}>
       <div
@@ -26,8 +29,8 @@ export default function ContactSection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            /* Responsive padding: big on desktop, compact on mobile */
-            padding: "clamp(40px, 8vw, 80px) clamp(20px, 6vw, 60px)",
+            /* Mobile gets tighter padding so the text has more room */
+            padding: isMobile ? "44px 24px" : "80px 60px",
             background: "var(--card-bg)",
             border: "1px solid var(--card-border)",
             borderRadius: 28,
@@ -48,17 +51,23 @@ export default function ContactSection() {
               fontFamily: "'Syne',sans-serif",
               fontWeight: 800,
               /*
-               * clamp(min, preferred, max)
-               * – Desktop (1200px): 5vw = 60px → capped at 3.5rem ≈ 56px ✓
-               * – Tablet  ( 768px): 5vw = 38px ≈ 2.4rem ✓
-               * – Phone   ( 390px): 5vw = 19.5px → floored at 1.9rem ≈ 30px
-               *   → "Something" fits comfortably in one line at 30px Syne
+               * Use explicit px via useIsMobile so there's zero ambiguity.
+               * 32px on a ~305px-wide phone → "Something" ≈ 175px wide → fits.
+               * Desktop keeps the original fluid clamp.
                */
-              fontSize: "clamp(1.9rem, 5vw, 3.5rem)",
+              fontSize: isMobile ? "2rem" : "clamp(2rem, 5vw, 3.5rem)",
               marginBottom: 20,
-              lineHeight: 1.1,
-              /* Prevent mid-word breaks — words should wrap whole */
-              wordBreak: "keep-all",
+              lineHeight: 1.15,
+
+              /* ── Hyphen prevention ──────────────────────────────────
+               * Android Chrome sometimes applies hyphens:auto from its
+               * default UA stylesheet. Explicitly nuke it here.          */
+              hyphens: "none",
+              WebkitHyphens: "none",
+              MozHyphens: "none",
+
+              /* Only break at spaces, never mid-word */
+              wordBreak: "normal",
               overflowWrap: "normal",
             }}
           >
@@ -81,9 +90,10 @@ export default function ContactSection() {
           <div
             style={{
               display: "flex",
+              flexDirection: isMobile ? "column" : "row",
               gap: 16,
               justifyContent: "center",
-              flexWrap: "wrap",
+              alignItems: "center",
             }}
           >
             <motion.a
@@ -91,7 +101,12 @@ export default function ContactSection() {
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="btn btn-primary"
-              style={{ fontSize: "1rem", padding: "14px 32px" }}
+              style={{
+                fontSize: "1rem",
+                padding: "14px 32px",
+                width: isMobile ? "100%" : "auto",
+                justifyContent: "center",
+              }}
             >
               {CONFIG.contact.ctaLabel} <HiEnvelope size={16} />
             </motion.a>
@@ -104,7 +119,12 @@ export default function ContactSection() {
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 className="btn btn-outline"
-                style={{ fontSize: "1rem", padding: "14px 32px" }}
+                style={{
+                  fontSize: "1rem",
+                  padding: "14px 32px",
+                  width: isMobile ? "100%" : "auto",
+                  justifyContent: "center",
+                }}
               >
                 LinkedIn <HiArrowTopRightOnSquare size={14} />
               </motion.a>
@@ -120,9 +140,11 @@ export default function ContactSection() {
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
+                  justifyContent: "center",
                   gap: 8,
                   fontSize: "1rem",
                   padding: "14px 32px",
+                  width: isMobile ? "100%" : "auto",
                   borderRadius: "var(--radius-md)",
                   fontFamily: "'Syne',sans-serif",
                   fontWeight: 600,

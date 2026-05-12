@@ -124,6 +124,11 @@ h6 {
   font-weight: 700;
   line-height: 1.1;
   color: var(--text);
+  /* Prevent Android Chrome UA stylesheet from auto-hyphenating headings */
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  word-break: normal;
 }
 
 .mono {
