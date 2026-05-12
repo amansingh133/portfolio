@@ -388,9 +388,9 @@ section {
   h1,
   h2,
   h3 {
-    word-break: break-word;
+    /* Let whole words wrap — never break mid-word */
     overflow-wrap: break-word;
-    hyphens: auto;
+    word-break: normal;
   }
 
   /* ── Hero floating tech-badge cloud ──

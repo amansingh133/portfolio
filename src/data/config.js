@@ -427,13 +427,13 @@ export const CONFIG = {
 
   // ── EDUCATION ───────────────────────────────────────────────
   education: [
-    {
-      degree: "Bachelor of Computer Applications (BCA)",
-      institution: "Vivekananda Institute of Professional Studies",
-      university: "IP University",
-      period: "",
-      location: "Delhi, India",
-    },
+    // {
+    //   degree: "Bachelor of Computer Applications (BCA)",
+    //   institution: "Vivekananda Institute of Professional Studies",
+    //   university: "IP University",
+    //   period: "",
+    //   location: "Delhi, India",
+    // },
   ],
 
   // ── CERTIFICATIONS ──────────────────────────────────────────
