@@ -14,7 +14,7 @@ export const CONFIG = {
     phone: "+91-8130914228",
     location: "Rohini, Delhi, India",
     summary:
-      "Full Stack Developer with 4+ years developing web and mobile applications using the MERN stack, React Native, and TypeScript — from REST API design to production deployment. Skilled in real-time systems (Socket.IO), Apache Kafka, Redis caching, and secure APIs (JWT, RBAC). A collaborative team player who communicates directly with clients and uses AI tools to ship faster.",
+      "Full Stack Developer with 4+ years building production-grade web and mobile apps across MERN, React Native,and TypeScript. Specialized in real-time systems (Socket.IO⁠, Kafka), Redis caching, and secure REST APIs (JWT,RBAC). Experienced in AI-assisted development workflows (Claude, ChatGPT, Gemini APIs) to accelerate delivery and code quality.",
     availableForWork: true, // shows/hides "Open to work" badge
     resumeLink: "./resume.pdf", // path to resume PDF in /public folder (or external URL)
   },
@@ -167,7 +167,7 @@ export const CONFIG = {
     {
       role: "Software Developer",
       company: "Progressix",
-      period: "Apr 2022 – Jun 2025",
+      period: "July 2023 – Jun 2025",
       // location: "Delhi, India",
       current: false,
       bullets: [
@@ -175,6 +175,18 @@ export const CONFIG = {
         "Built admin dashboards with advanced filtering, pagination, and Excel export; improved performance by integrating Redis caching, cutting API response times.",
       ],
       tech: ["MERN Stack", "JWT", "RBAC", "Redis", "Excel Export"],
+    },
+    {
+      role: "Software Developer (Contract)",
+      company: "Progressix",
+      period: "Apr 2022 – Jun 2023",
+      // location: "Delhi, India",
+      current: false,
+      bullets: [
+        "Delivered backend modules and frontend features on a part-time contract engagement while transitioning from customer operations into full-time software engineering.",
+        "Built reusable React.js components and Node.js / Express.js REST endpoints supporting 4+ internal MERN stack projects with focus on maintainability.",
+      ],
+      tech: ["MERN Stack", "JWT", "RBAC", "Excel Export"],
     },
     {
       role: "Software Developer Intern",
@@ -190,9 +202,9 @@ export const CONFIG = {
       tech: ["React.js", "REST APIs", "MERN Stack"],
     },
     {
-      role: "Sr. Representative Operations",
+      role: "Customer Operations Executive",
       company: "Concentrix",
-      period: "Sep 2017 – Mar 2021",
+      period: "Sep 2017 – June 2023",
       // location: "Delhi, India",
       current: false,
       bullets: [
