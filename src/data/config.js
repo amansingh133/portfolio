@@ -96,16 +96,14 @@ export const CONFIG = {
       ],
     },
     {
-      category: "AI Tools",
+      category: "Generative AI & RAG",
       icon: "🤖",
       items: [
-        "Gemini API",
-        "Claude API",
-        "OpenAI API",
-        "AI-Powered Feature Integration",
-        "Prompt Engineering",
-        "Context-Aware Query Building",
-        "AI-Assisted Development",
+        "LangChain.js",
+        "Vector Databases",
+        "Semantic Search",
+        "Context-Aware Prompt Engineering",
+        "LLM API Architectures",
       ],
     },
     {
@@ -221,6 +219,32 @@ export const CONFIG = {
   // liveUrl / githubUrl → leave "" to hide the button
   projects: [
     {
+      id: "rag-powered-document-intelligence-ai-search",
+      title: "RAG-Powered Document Intelligence & AI Search",
+      subtitle: "RAG System with AI powered search",
+      description:
+        "Retrieval-Augmented Generation (RAG) system over user documents (PDF, DOCX, CSV) with source cited, hallucination-resistant responses.",
+      bullets: [
+        "Developed an AI-driven text processing workflow using LangChain.js, chunking documents and creating embeddings that improved data searchability by 40% for end-users.",
+        "Integrated the Gemini API for AI-driven semantic product search, replacing static filters with adaptive, context-aware query generation.",
+      ],
+      tech: [
+        "Node.js",
+        "Express.js",
+        "TypeScript",
+        "React.js",
+        "LangChain.js",
+        "Google Gemini API",
+        "MongoDB Atlas Vector Search",
+        "MySQL",
+      ],
+      category: "Full Stack",
+      featured: true,
+      liveUrl: "https://rag-system-hov5.onrender.com/",
+      githubUrl: "https://github.com/amansingh133/rag-system",
+      color: "#a855f7",
+    },
+    {
       id: "kafka-eats",
       title: "Kafka Eats",
       subtitle: "Real-Time Order Tracking System",
@@ -250,7 +274,7 @@ export const CONFIG = {
       ],
       tech: ["React Native", "Gemini API", "Prompt Engineering"],
       category: "Mobile",
-      featured: true,
+      featured: false,
       liveUrl: "",
       githubUrl: "https://github.com/amansingh133/ai-product-advisor",
       color: "#a855f7",
