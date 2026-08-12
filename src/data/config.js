@@ -240,7 +240,7 @@ export const CONFIG = {
       ],
       category: "Full Stack",
       featured: true,
-      liveUrl: "https://rag-system-hov5.onrender.com/",
+      liveUrl: "http://rag-app.169.58.104.255.sslip.io/",
       githubUrl: "https://github.com/amansingh133/rag-system",
       color: "#a855f7",
     },
