@@ -109,11 +109,7 @@ export const CONFIG = {
     {
       category: "Third-Party & Platform APIs",
       icon: "🤖",
-      items: [
-        "Meta Graph API (Facebook & Instagram)",
-        "Firebase Admin SDK (Cloud Messaging)",
-        "Google Geocoding API,",
-      ],
+      items: ["Meta Graph API ", "Firebase Admin SDK", "Google Geocoding API,"],
     },
     {
       category: "Security",
@@ -313,7 +309,7 @@ export const CONFIG = {
       ],
       tech: ["Apache Kafka", "Node.js", "React.js", "MongoDB", "Socket.IO"],
       category: "Backend",
-      featured: true,
+      featured: false,
       liveUrl: "",
       githubUrl: "https://github.com/amansingh133/kafka-order",
       color: "#00e5ff",
