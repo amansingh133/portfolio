@@ -107,6 +107,15 @@ export const CONFIG = {
       ],
     },
     {
+      category: "Third-Party & Platform APIs",
+      icon: "🤖",
+      items: [
+        "Meta Graph API (Facebook & Instagram)",
+        "Firebase Admin SDK (Cloud Messaging)",
+        "Google Geocoding API,",
+      ],
+    },
+    {
       category: "Security",
       icon: "🔐",
       items: [
@@ -245,6 +254,53 @@ export const CONFIG = {
       color: "#a855f7",
     },
     {
+      id: "real-estate-lead-management-platform",
+      title: "Real Estate Lead Management Platform",
+      subtitle: "CRM to manage Leads",
+      description:
+        "Backend for a CRM manage and followup on leads with their status.",
+      bullets: [
+        "Architected a multi-tenant backend API modeling organizations, leads, follow-ups, and projects with role-scoped access; automated reminders and attendance tracking via node-cron and Firebase Cloud Messaging (FCM) push notifications.",
+        "Secured the API with JWT auth, OTP verification, and RBAC, hardened via rate limiting, Mongo query sanitization, Helmet, and HPP, with geocoding for field-agent location capture.",
+      ],
+      tech: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Firebase Admin SDK",
+        "JWT",
+        "RBAC",
+      ],
+      category: "Backend",
+      featured: true,
+      liveUrl: "http://api.169.58.104.255.sslip.io/api/v1/health",
+      githubUrl: "https://github.com/amansingh133/real-estate-crm",
+      color: "#a855f7",
+    },
+    {
+      id: "social-media-lead-aggregator",
+      title: "Social Media Lead Aggregator",
+      subtitle: "Social Media Application to generate leads.",
+      description:
+        "A Lead generation platform that generates leads from social media for management.",
+      bullets: [
+        "Built a modular MERN platform aggregating posts, comments, and leads from Facebook and Instagram via the Meta Graph API and webhook subscriptions, using a Factory-pattern service layer that lets a new platform integrate as a single class.",
+        "Implemented a real-time Instagram hashtag listener that auto-captures engagement into leads, surfaced through a React/Vite dashboard for lead and post management.",
+      ],
+      tech: [
+        "Node.js",
+        "Express.js",
+        "React.js (Vite)",
+        "MongoDB",
+        "Meta Graph API",
+      ],
+      category: "Full Stack",
+      featured: true,
+      // liveUrl: "http://api.169.58.104.255.sslip.io/api/v1/health",
+      githubUrl: "https://github.com/amansingh133/social-media-aggregator",
+      color: "#a855f7",
+    },
+    {
       id: "kafka-eats",
       title: "Kafka Eats",
       subtitle: "Real-Time Order Tracking System",
@@ -291,7 +347,7 @@ export const CONFIG = {
       ],
       tech: ["MERN Stack", "JWT", "RBAC", "TLS", "OWASP"],
       category: "Backend",
-      featured: true,
+      featured: false,
       liveUrl: "https://owasp-compliance-demo.onrender.com/",
       githubUrl: "https://github.com/amansingh133/owasp-demo",
       color: "#f59e0b",
