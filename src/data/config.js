@@ -16,7 +16,7 @@ export const CONFIG = {
     summary:
       "Full Stack Developer with 3+ years building web and mobile products end to end, mostly in Node.js, React, and React Native. Builds RAGpipelines with LangChain.js and vector search, runs Kafka-backed services, and handles deployment on a self-hosted Linux VPS with Dockerand CI/CD. Comfortable owning a feature from database schema to shipped UI.",
     availableForWork: true, // shows/hides "Open to work" badge
-    resumeLink: "./resume.pdf", // path to resume PDF in /public folder (or external URL)
+    resumeLink: "./Aman_Singh_Resume.pdf", // path to resume PDF in /public folder (or external URL)
   },
 
   // ── SOCIAL / LINKS ──────────────────────────────────────────
@@ -126,9 +126,9 @@ export const CONFIG = {
     {
       role: "Software Developer",
       company: "Laxmi Enterprises",
-      period: "Sep 2025 – Present",
+      period: "Sep 2025 – Sep 2026",
       location: "Hybrid",
-      current: true,
+      current: false,
       bullets: [
         "Built distributed Node.js services on Kafka and Redis across 3+ microservices.",
         "Implemented real-⁠time Socket.IO channels for live dashboard updates, replacing client polling with push delivery.",
